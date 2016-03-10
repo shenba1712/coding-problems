@@ -23,12 +23,12 @@ public class Printer_Visenze {
 			try {
 				while (!(str= br.readLine()).equalsIgnoreCase("$end"))
 				{	 	
-				//String text=s.nextLine();
 					text.append(str);
 					text.append("\n");
 				}
 			} catch (IOException e1) {
 				System.out.println("Error Reading Data");
+				System.exit(0);
 			}
 			
 			System.out.println();
@@ -105,6 +105,7 @@ public class Printer_Visenze {
 				System.out.println("File writing is done");
 			} catch (IOException e) {
 				System.out.println("unexpected error in printing page.");
+				System.exit(0);
 			}
 		}
 	}
