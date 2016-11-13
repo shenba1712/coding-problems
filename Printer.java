@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Printer_Visenze {
+public class Printer {
 	
 		// taking paper's height as 40
 		private final static int height = 40;
