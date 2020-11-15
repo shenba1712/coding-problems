@@ -1,3 +1,5 @@
+// Enter a program to print a typed document. The program should ideaaly show how the document would look if actually printed in a paper.
+
 package Printer;
 
 import java.io.BufferedReader;
