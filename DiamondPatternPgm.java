@@ -1,3 +1,5 @@
+// A program to display the diamond pattern
+
 public class DiamondPatternPgm {
 
 	public static void main(String args[])
