@@ -1,3 +1,6 @@
+// Fing the nearest number to the number given.
+// Given an array n and a number k, find a number in the array that is closest to the number k.
+
 package example1;
 
 import java.util.ArrayList;
