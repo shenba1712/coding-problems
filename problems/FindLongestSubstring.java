@@ -6,6 +6,7 @@
 * Return nil when there are no enough distinct characters in the provided string.
 * k should always be greater than 0 (obviously)
  */
+package problems;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,5 @@
 // A program to display the diamond pattern
+package problems;
 
 public class DiamondPatternPgm {
 

@@ -1,6 +1,6 @@
 // Enter a program to print a typed document. The program should ideaaly show how the document would look if actually printed in a paper.
 
-package Printer;
+package problems;
 
 import java.io.BufferedReader;
 import java.io.File;
