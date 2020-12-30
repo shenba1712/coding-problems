@@ -40,16 +40,16 @@ public class ShortenUrl {
     }
 
     private static String shortenUrl(String url) {
-        List<String> found = urls.entrySet().stream().filter(entry -> entry.getValue().equals(url)).map(Map.Entry::getKey).collect(Collectors.toUnmodifiableList());
-        if (found.isEmpty()) {
+        Optional<String> found = urls.entrySet().stream().filter(entry -> entry.getValue().equals(url)).findFirst().map(Map.Entry::getKey);
+        if (found.isPresent()) {
+            return found.get();
+        } else {
             String key;
             do {
-             key = generateKey();
+                key = generateKey();
             } while (urls.containsKey(key)); // keep generating key until unque key is obtained
             urls.put(key, url);
             return key;
-        } else {
-            return found.get(0);
         }
     }
 
