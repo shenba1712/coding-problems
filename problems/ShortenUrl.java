@@ -2,7 +2,6 @@
 package problems;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ShortenUrl {
     static Map<String, String> urls = new HashMap<>();
