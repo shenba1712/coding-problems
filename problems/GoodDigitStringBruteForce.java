@@ -62,6 +62,9 @@ public class GoodDigitStringBruteForce {
         return count;
     }
 
+    // Build the digit string with leading zeroes based on the length.
+    // For n = 2:  00, 01, 02... 99
+    // For n = 3: 000, 001, 002, 003... 999
     private static String getDigitString(long length, long number) {
         StringBuilder sb = new StringBuilder();
         long numLength = number == 0 ? 1 : (long) (Math.log10(number) + 1);
