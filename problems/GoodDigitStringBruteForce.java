@@ -31,7 +31,8 @@ public class GoodDigitStringBruteForce {
         }
 
         long count = findGoodDigitStrings(n);
-        System.out.println("Total number of good digits of length n: " + count);
+        int simplifiedCount = (int) (count % (1e9 + 7));
+        System.out.println("Total number of good digits of length n: " + simplifiedCount);
     }
 
     private static long findGoodDigitStrings(long length) {
