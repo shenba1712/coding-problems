@@ -20,7 +20,7 @@ public class FindFirstMissingPositiveNumber {
             array[i] = scanner.nextInt();
         }
 
-        // change all the negative numbers to the beginning of the array.
+        // move all the negative numbers to the beginning of the array.
         // These numbers will be omitted since we want the smallest missing positive number.
         int j = 0;
         for (int i = 0; i < n; i++) {

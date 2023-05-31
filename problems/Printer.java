@@ -1,4 +1,5 @@
-// Enter a program to print a typed document. The program should ideaaly show how the document would look if actually printed in a paper.
+// Enter a program to print a typed document.
+// The program should ideally show how the document would look if actually printed in a paper.
 
 package problems;
 
@@ -44,63 +45,57 @@ public class Printer {
 				file.createNewFile();
 				FileWriter writer = new FileWriter(file);
 				int pg_height = 1;
-				int line_length = 0;
-				StringBuilder line = new StringBuilder("");
-				
-				for (int j=0; j<para.length; j++) // loop over every paragraph
-				{
-					line_length=0;
-					line=new StringBuilder("");
-					String[] words= para[j].split(" "); // split the paragraph into separate words to print.
-				for (int i = 0; i < words.length; i++) // loop over every word in the paragraph
-				{
-					line_length += words[i].length();
-					
-					if (line_length < width) {
-						line.append(words[i]);
-						line.append(" ");
-						line_length++;// Incrementing to create space between strings
-					}
+				int line_length;
+				StringBuilder line;
+
+				// loop over every paragraph
+				for (String s : para) {
+					line_length = 0;
+					line = new StringBuilder();
+					String[] words = s.split(" "); // split the paragraph into separate words to print.
+					// loop over every word in the paragraph
+					for (String word : words) {
+						line_length += word.length();
+
+						if (line_length < width) {
+							line.append(word);
+							line.append(" ");
+							line_length++;// Incrementing to create space between strings
+						}
 
 						// to check if the text has come to the end of the line, then a new line is begun.
-					else 
-					{
-						line_length = 0;
-						pg_height++;
-						/* to check if the text has come to the end of the page, 
+						else {
+							line_length = 0;
+							pg_height++;
+						/* to check if the text has come to the end of the page,
 						then the page is written to a text, and a new page is begun. */
-						if (pg_height > height) 
-						{
-							writer.write(line.toString());
-							writer.flush();
-							m++;// incrementing m to create next page for printing
-							file = new File("PrintPage" + m + ".txt");
-							System.out.println("Printing file "+file.getName());
-							writer = new FileWriter(file);
-							pg_height = 1;
-							line = new StringBuilder("");
-							line.append(words[i]);
-							line_length = words[i].length();
-							if(line_length!=width)
-							{
-								line.append(" ");
-								line_length++;// adding space between words
-							}
-						} 
-						else 
-						{
-								line.append("\r\n");
-								line.append(words[i]);
-								line_length += words[i].length();
-								if(line_length < width)
-								{
+							if (pg_height > height) {
+								writer.write(line.toString());
+								writer.flush();
+								m++;// incrementing m to create next page for printing
+								file = new File("PrintPage" + m + ".txt");
+								System.out.println("Printing file " + file.getName());
+								writer = new FileWriter(file);
+								pg_height = 1;
+								line = new StringBuilder();
+								line.append(word);
+								line_length = word.length();
+								if (line_length != width) {
 									line.append(" ");
 									line_length++;// adding space between words
 								}
+							} else {
+								line.append("\r\n");
+								line.append(word);
+								line_length += word.length();
+								if (line_length < width) {
+									line.append(" ");
+									line_length++;// adding space between words
+								}
+							}
 						}
-					} 
-				}
-				writer.write(line.toString()+"\r\n");
+					}
+					writer.write(line + "\r\n");
 				}
 				writer.flush();
 				writer.close();
